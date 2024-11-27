@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route, NavLink } from "react-router-dom";
 import Index from '../Index';
 import CoursesPage from '../../Components/Courses/CoursesPage'
 import Inquiry from '../Inquiry/Inquiry';
+import Free from '../Free/Free';
 
 const Header = () => {
   // State to manage mobile menu visibility
@@ -114,6 +115,8 @@ const Header = () => {
         <Route path="/" element={<Index />} />
         <Route path="/courses" element={<CoursesPage />} />
         <Route path='/inquiry' element={<Inquiry/>}/>
+        <Route path='/free' element={<Free/>}/>
+
         {/* Add other routes as needed */}
       </Routes>
     </BrowserRouter>

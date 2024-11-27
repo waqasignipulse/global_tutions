@@ -2,8 +2,8 @@ import React from 'react'
 
 const Sidebar = () => {
   return (
-    <div>
-       <div class="lg:w-[20%] w-full md:px-0 px-6 bg-[#FFFFFF] p-2">
+    <div className='border-2'>
+       <div class="lg:w-[20%] w-full md:px-0 px-6 bg-[#FFFFFF] p-2 ">
             <div class="flex flex-col px-4 gap-2 pt-8">
               <p
                 class="font-readex font-semibold lg:text-[38px] md:text-[31px] text-[25px] xl:text-[44px] 2xl:text-[51px]"

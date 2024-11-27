@@ -15,25 +15,23 @@ const CoursesPage = () => {
       >
         <p class="xl:tracking-[1px]">
           <span class="font-bold"> Explore Our Course:</span> Elevate Your IT
-          Skills - Building Tomorrow‘s Tech Innovators
+          Skills - Building Tomorrow‘s Tech Innovators 
         </p>
       </div>
     </div>
     </div>
 
 {/* // <!-- sidebar and cards  --> */}
-<div class="mb-2 mt-12 py-3 max-w-[1400px] md:max-w-[1200px] mx-auto">
-  {/* <!-- sidebar cards  --> */}
-  <div class="w-full h-auto">
-    <div class="flex lg:flex-row flex-col md:justify-start">
-      {/* <!-- sidebar   --> */}
+<div class="w-full h-auto">
+        <div class="flex lg:flex-row flex-col md:justify-start">
+          {/* <!-- sidebar   --> */}
+        
       <Sidebar/>
+      {/* <!-- cards  --> */}
+        {/* <div class="w-full h-auto flex justify-center items-center ">
+          <div class="max-w-[400px] md:max-w-[800px] lg:max-w-[1000px] "> */}
       <Cards/>
-
       </div>
-      {/* Cards  */}
-      </div>
-
       </div>
 <FindFreeCoursesandDiscountsoffer/>
 <Subscribe/>
