@@ -1,9 +1,24 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Sidebar from './Sidebar'
 import Cards from '../Main/Cards'
 import FindFreeCoursesandDiscountsoffer from '../Main/FindFreeCoursesandDiscountsoffer'
 import Subscribe from '../Main/Subscribe'
+import Config from '../../../Config/Config'
+
 const CoursesPage = () => {
+
+
+  const [courses, setCourses] = useState([]);
+  const [filteredCourses, setFilteredCourses] = useState([])
+  useEffect(()=>{
+    Config.get_enabled_courses().then((res)=>{
+      setCourses(res);
+    }).catch((err)=>{
+      console.log(err);
+    });
+  }, []);
+
+
   return (
     <>
     <div>
@@ -21,19 +36,18 @@ const CoursesPage = () => {
     </div>
     </div>
 
-{/* // <!-- sidebar and cards  --> */}
-<div class="h-auto max-w-[1350px] mx-auto">
-        <div class="flex lg:flex-row flex-col md:justify-start">
-          {/* <!-- sidebar   --> */}
-        
+  {/* // <!-- sidebar and cards  --> */}
+    <div class="h-auto max-w-[1350px] mx-auto">
+      <div class="flex lg:flex-row flex-col md:justify-start">
+        {/* <!-- sidebar   --> */}
+      
       <Sidebar/>
       {/* <!-- cards  --> */} 
-          {/* <div class="max-w-[400px] md:max-w-[800px] lg:max-w-[1000px] ">  */}
-      <Cards/>
-      {/* </div> */}
+      <div class="max-w-[400px] md:max-w-[800px] lg:max-w-[1000px] "> 
+        <Cards />
       </div>
-     
       </div>
+    </div>
 <FindFreeCoursesandDiscountsoffer/>
 <Subscribe/>
 

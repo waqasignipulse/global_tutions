@@ -1,6 +1,21 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Cards from './Cards'
+import Config from '../../../Config/Config'
+
 const PopularCourses = () => {
+
+  const [courses, setCourses] = useState([])
+
+  useEffect(()=>{
+    Config.get_enabled_popular_courses().then((res)=>{
+      console.log(res)
+      setCourses(res)
+    }).catch((err)=>{
+      console.log(err)
+    })
+    
+  },[])
+
   return (
     <div>
        {/* <!-- our popular courses secction  --> */}
@@ -19,7 +34,11 @@ const PopularCourses = () => {
       {/* <!-- popular courses  cards  --> */}
       {/* <!-- cards  --> */}
        <div class="md:px-14 lg:px- xl:px-24 2xl:px-32 w-full">
-          {/* <Cards course={course} /> */}
+          {
+            courses.map((course)=> (
+              <Cards course={course}/>
+            ))
+          }
           {/* <!-- courses more div  --> */}
         </div>
 
