@@ -11,7 +11,7 @@ const Courses = () => {
     try {
       const res = await axios.get(APIS.get_enabled_courses, {params : {order: 1}});
       if(res.statusText === "OK"){
-        console.log(res.data)
+        // console.log(res.data)
         setCourses(res.data);
       }else{
         // Render a dummy jsx to show message that says 'no categories available'

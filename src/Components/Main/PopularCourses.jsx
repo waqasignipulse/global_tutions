@@ -19,7 +19,7 @@ const PopularCourses = () => {
       {/* <!-- popular courses  cards  --> */}
       {/* <!-- cards  --> */}
        <div class="md:px-14 lg:px- xl:px-24 2xl:px-32 w-full">
-          <Cards />
+          {/* <Cards course={course} /> */}
           {/* <!-- courses more div  --> */}
         </div>
 
