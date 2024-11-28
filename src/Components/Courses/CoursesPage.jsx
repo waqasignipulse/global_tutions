@@ -50,8 +50,7 @@ const CoursesPage = () => {
       
       <Sidebar getCategoryId={getCategoryId}/>
       {/* <!-- cards  --> */} 
-      <div class="max-w-[400px] md:max-w-[800px] lg:max-w-[1000px] "> 
-        {console.log("filtered:",filteredCourses)}
+      <div class="max-w-[400px] md:max-w-[800px] lg:max-w-[1000px] ">
         {
           filteredCourses?.map((course)=>(
             <Cards course={course}/>
@@ -60,8 +59,8 @@ const CoursesPage = () => {
       </div>
       </div>
     </div>
-<FindFreeCoursesandDiscountsoffer/>
-<Subscribe/>
+    <FindFreeCoursesandDiscountsoffer/>
+    <Subscribe/>
 
       </>
   )

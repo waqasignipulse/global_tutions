@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-const Course_detail_banner = () => {
+const Course_detail_banner = ({course}) => {
+  console.log(course)
   return (
     <div>
        {/* <!-- Banner Section - Course Detail --> */}
@@ -14,7 +15,7 @@ const Course_detail_banner = () => {
           <div
             class="font-readex font-extrabold text-[50px] md:text-[60px] lg:text-[70px] xl:text-[80px] 2xl:text-[90px] tracking-tighter leading-tight w-full">
             <p>
-              HTML for
+              {course?.course_name}
               <span class="inline-block">
                 Beginners
                 <img src="images/courses-detail-images/linedesign.svg" alt=""
