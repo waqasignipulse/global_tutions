@@ -9,7 +9,8 @@ const CoursesPage = () => {
 
 
   const [courses, setCourses] = useState([]);
-  const [filteredCourses, setFilteredCourses] = useState([])
+  const [filteredCourses, setFilteredCourses] = useState([]);
+  const [categoryIds, setCategoryIds] = useState('');
   useEffect(()=>{
     Config.get_enabled_courses().then((res)=>{
       setCourses(res);
@@ -18,6 +19,15 @@ const CoursesPage = () => {
     });
   }, []);
 
+  function getCategoryId(cat_id){
+    setCategoryIds(cat_id);
+
+    // construct filtered courses
+    setFilteredCourses(courses.filter((course)=>{
+      categoryIds.some((cat_id)=> course.category_id === cat_id._id);
+    }))
+
+  }
 
   return (
     <>
@@ -41,10 +51,14 @@ const CoursesPage = () => {
       <div class="flex lg:flex-row flex-col md:justify-start">
         {/* <!-- sidebar   --> */}
       
-      <Sidebar/>
+      <Sidebar getCategoryId={getCategoryId}/>
       {/* <!-- cards  --> */} 
       <div class="max-w-[400px] md:max-w-[800px] lg:max-w-[1000px] "> 
-        <Cards />
+        {
+          filteredCourses.map((course)=>(
+            <Cards course={course}/>
+          ))
+        }
       </div>
       </div>
     </div>

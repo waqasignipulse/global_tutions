@@ -1,13 +1,18 @@
 import React, { useEffect, useState } from 'react'
 import Config from '../../../Config/Config'
-const Sidebar = () => {
+const Sidebar = ({getCategoryId}) => {
 
 
-  const [categories, setCategories] = useState([])
+  const [categories, setCategories] = useState([]);
 
   useEffect(()=>{
     Config.get_enabled_categories().then((res)=> {
-      setCategories(res)
+      setCategories(res);
+      console.log(res)
+      const ids = res.map((cat) => cat._id)
+      if(getCategoryId){
+        getCategoryId(ids)
+      }
     }).catch((err)=>{
       console.log(err)
     })
