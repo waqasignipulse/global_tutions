@@ -11,6 +11,7 @@ import Course_detail from '../Courses/Course_detail';
 import { useNavigate } from 'react-router-dom';
 import Signin from '../Authentication/Signin';
 import Signup from '../Authentication/Signup';
+import Avail from '../Main/Avail';
 
 const Header = () => {
   // State to manage mobile menu visibility
@@ -124,6 +125,7 @@ const Header = () => {
         <Route path='/free' element={<Free/>}/>
         <Route path='/signin' element={<Signin/>}/> 
         <Route path='/signup' element={<Signup/>}/> 
+        <Route path="/avail" element={<Avail />} />
 
         {/* Add other routes as needed */}
       </Routes>
