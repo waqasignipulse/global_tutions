@@ -1,6 +1,7 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
-const Cards = () => {
+const Cards = (props) => {
   return (
     <div>
          {/* <div class="md:px-14 lg:px- xl:px-24 2xl:px-32 w-full"> */}
@@ -23,7 +24,7 @@ const Cards = () => {
                   </div>
                 </div>
                 <div class="html-div">
-                  <p class="html-p">HTML for Beginners</p>
+                  <p class="html-p">{props.course?.course_name}</p>
                   <p>
                     <i class="fa-solid fa-arrow-right-to-bracket"></i>
                   </p>
