@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { Link } from 'react-router-dom'
 const Course_detail_banner = () => {
   return (
     <div>
@@ -58,9 +58,9 @@ const Course_detail_banner = () => {
               {/* <!-- Action Buttons --> */}
               <div class="flex flex-row gap-2 justify-between mt-4">
                 <a href="user-page/avail.html">
-                  <button class="btnbutton">
+                  <Link to='/avail' class="btnbutton">
                     Avail
-                  </button>
+                  </Link>
                 </a>
                 <button class="btnbutton ">
                   Inquiry
