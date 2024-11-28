@@ -1,4 +1,5 @@
 import React from 'react'
+import findcoursesImg from '../../assets/images/findcourses-img.png'
 
 const BannerFree = () => {
   return (
@@ -33,7 +34,7 @@ const BannerFree = () => {
         {/* <!-- Image Section --> */}
         <div class="md:w-1/2 w-full flex justify-center items-center">
           <img
-            src="images/homepage-images/findcourses-img.webp"
+            src={findcoursesImg}
             alt="Banner Image"
             class="w-[350px] h-[400px] md:w-[430px] lg:w-[450px] xl:w-[570px] 2xl:w-[700px] md:h-[410px] lg:h-[450px] xl:h-[500px] 2xl:h-[600px]"
           />

@@ -2,6 +2,7 @@ import React from 'react'
 import BannerFree from '../Main/BannerFree'
 import Sidebar from '../Courses/Sidebar'
 import Cards from '../Main/Cards'
+import Subscribe from '../Main/Subscribe'
 
 const Free = () => {
   return (
@@ -59,7 +60,7 @@ const Free = () => {
 
       {/* </div> */}
       {/* </div> */}
-
+<Subscribe/>
     </div>
   )
 }

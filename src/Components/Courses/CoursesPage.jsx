@@ -22,16 +22,17 @@ const CoursesPage = () => {
     </div>
 
 {/* // <!-- sidebar and cards  --> */}
-<div class="w-full h-auto">
+<div class="h-auto max-w-[1350px] mx-auto">
         <div class="flex lg:flex-row flex-col md:justify-start">
           {/* <!-- sidebar   --> */}
         
       <Sidebar/>
-      {/* <!-- cards  --> */}
-        {/* <div class="w-full h-auto flex justify-center items-center ">
-          <div class="max-w-[400px] md:max-w-[800px] lg:max-w-[1000px] "> */}
+      {/* <!-- cards  --> */} 
+          {/* <div class="max-w-[400px] md:max-w-[800px] lg:max-w-[1000px] ">  */}
       <Cards/>
+      {/* </div> */}
       </div>
+     
       </div>
 <FindFreeCoursesandDiscountsoffer/>
 <Subscribe/>

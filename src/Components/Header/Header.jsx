@@ -7,11 +7,14 @@ import Index from '../Index';
 import CoursesPage from '../../Components/Courses/CoursesPage'
 import Inquiry from '../Inquiry/Inquiry';
 import Free from '../Free/Free';
+import Course_detail from '../Courses/Course_detail';
+import { useNavigate } from 'react-router-dom';
 
 const Header = () => {
   // State to manage mobile menu visibility
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   const toggleSearch = () => setIsSearchOpen(!isSearchOpen);
@@ -114,6 +117,7 @@ const Header = () => {
       <Routes>
         <Route path="/" element={<Index />} />
         <Route path="/courses" element={<CoursesPage />} />
+        <Route path="/Course_detail" element={<Course_detail />} />
         <Route path='/inquiry' element={<Inquiry/>}/>
         <Route path='/free' element={<Free/>}/>
 

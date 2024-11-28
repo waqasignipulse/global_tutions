@@ -1,6 +1,16 @@
 import React from 'react'
-
+import { NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
+// import course_detail from '../Courses/Course_detail'
+// import Course_detail from '../Courses/Course_detail'
 const Cards = () => {
+
+  const navigate = useNavigate();
+  const handleCardClick = (Course_detail) => {
+    navigate(`/courses/${Course_detail}`); // Correct string interpolation
+};
+
   return (
     <div>
          {/* <div class="md:px-14 lg:px- xl:px-24 2xl:px-32 w-full"> */}
@@ -23,7 +33,7 @@ const Cards = () => {
                   </div>
                 </div>
                 <div class="html-div">
-                  <p class="html-p">HTML for Beginners</p>
+                  <p class="html-p">HTML for Beginnersggggggggggg</p>
                   <p>
                     <i class="fa-solid fa-arrow-right-to-bracket"></i>
                   </p>
@@ -33,10 +43,10 @@ const Cards = () => {
                 <div>
                   <p class="web-development-bold">Web Development</p>
                 </div>
-                <div>
-                  <a href="other-pages/courses-detail.html">
+                <div >
+                  <Link to="/Course_detail">
                     <button class="btnbutton">View</button>
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
