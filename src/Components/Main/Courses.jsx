@@ -1,28 +1,18 @@
 import React, { useEffect, useState } from 'react'
 import Cards from './Cards'
-import axios from 'axios'
-import APIS from '../../../Config/Config'
+import Config from '../../../Config/Config'
 
 const Courses = () => {
 
   const [courses, setCourses] = useState([])
 
-  const getCourses = async ()=>{
-    try {
-      const res = await axios.get(APIS.get_enabled_courses, {params : {order: 1}});
-      if(res.statusText === "OK"){
-        // console.log(res.data)
-        setCourses(res.data);
-      }else{
-        // Render a dummy jsx to show message that says 'no categories available'
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  }
-
   useEffect(()=>{
-    getCourses();
+    Config.get_enabled_courses().then((res)=>{
+      setCourses(res)
+    }).catch((err)=>{
+      console.log(err)
+    })
+    
   },[])
 
   return (
