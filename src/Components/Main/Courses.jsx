@@ -1,7 +1,30 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Cards from './Cards'
+import axios from 'axios'
+import APIS from '../../../Config/Config'
 
 const Courses = () => {
+
+  const [courses, setCourses] = useState([])
+
+  const getCourses = async ()=>{
+    try {
+      const res = await axios.get(APIS.get_enabled_courses, {params : {order: 1}});
+      if(res.statusText === "OK"){
+        console.log(res.data)
+        setCourses(res.data);
+      }else{
+        // Render a dummy jsx to show message that says 'no categories available'
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  useEffect(()=>{
+    getCourses();
+  },[])
+
   return (
     <div>
       {/* <!-- home page courses cards section  --> */}
@@ -17,7 +40,11 @@ const Courses = () => {
         {/* <!-- cards  --> */}
 
         <div class="md:px-14 lg:px- xl:px-24 2xl:px-32 w-full">
-          <Cards />
+          {
+            courses.map((course)=> (
+              <Cards course={course}/>
+            ))
+          }
           {/* <!-- courses more div  --> */}
         </div>
         <div
