@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Config from '../../../Config/Config'
-const Sidebar = ({getCategoryId}) => {
+const Sidebar = (props) => {
 
 
   const [categories, setCategories] = useState([]);
@@ -8,11 +8,7 @@ const Sidebar = ({getCategoryId}) => {
   useEffect(()=>{
     Config.get_enabled_categories().then((res)=> {
       setCategories(res);
-      console.log(res)
-      const ids = res.map((cat) => cat._id)
-      if(getCategoryId){
-        getCategoryId(ids)
-      }
+      // console.log(res)
     }).catch((err)=>{
       console.log(err)
     })
@@ -38,9 +34,9 @@ const Sidebar = ({getCategoryId}) => {
                 <div class="flex flex-col gap-1">
                  {
                   categories.map((category)=> (
-                    <label class="flex items-center">
+                    <label onClick={()=> props.getCategoryId(category._id)} class="flex items-center">
                       <input type="checkbox" class="mr-2" />
-                      <a href="Beginner">{category.category_name}</a>
+                      <a>{category.category_name}</a>
                     </label>
                   ))
                  }

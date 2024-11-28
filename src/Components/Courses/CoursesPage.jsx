@@ -10,7 +10,7 @@ const CoursesPage = () => {
 
   const [courses, setCourses] = useState([]);
   const [filteredCourses, setFilteredCourses] = useState([]);
-  const [categoryIds, setCategoryIds] = useState('');
+
   useEffect(()=>{
     Config.get_enabled_courses().then((res)=>{
       setCourses(res);
@@ -20,13 +20,10 @@ const CoursesPage = () => {
   }, []);
 
   function getCategoryId(cat_id){
-    setCategoryIds(cat_id);
-
     // construct filtered courses
-    setFilteredCourses(courses.filter((course)=>{
-      categoryIds.some((cat_id)=> course.category_id === cat_id._id);
-    }))
-
+    const filtered = courses.filter((course) => course.category_id._id === cat_id)
+    setFilteredCourses(filtered);
+     
   }
 
   return (
@@ -54,8 +51,9 @@ const CoursesPage = () => {
       <Sidebar getCategoryId={getCategoryId}/>
       {/* <!-- cards  --> */} 
       <div class="max-w-[400px] md:max-w-[800px] lg:max-w-[1000px] "> 
+        {console.log("filtered:",filteredCourses)}
         {
-          filteredCourses.map((course)=>(
+          filteredCourses?.map((course)=>(
             <Cards course={course}/>
           ))
         }
