@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 const Course_detail_banner = ({course}) => {
-  console.log(course)
+  
   return (
     <div>
        {/* <!-- Banner Section - Course Detail --> */}
@@ -15,9 +15,9 @@ const Course_detail_banner = ({course}) => {
           <div
             class="font-readex font-extrabold text-[50px] md:text-[60px] lg:text-[70px] xl:text-[80px] 2xl:text-[90px] tracking-tighter leading-tight w-full">
             <p>
-              {course?.course_name}
+              {course.course_name}
               <span class="inline-block">
-                Beginners
+                {course.course_level}
                 <img src="images/courses-detail-images/linedesign.svg" alt=""
                   class="mt-[px] md:mt-[px] lg:mt-[-20px] xl:mt-[px] 2xl:mt-[px] w-[250px] md:w-[300px] lg:w-[350px] xl:w-[400px] 2xl:w-[450px]" />
               </span>
@@ -27,11 +27,7 @@ const Course_detail_banner = ({course}) => {
           <div
             class="tracking-tighter leading-tight text-[px] md:text-[px] lg:text-[20px] xl:text-[px] 2xl:text-[px] font-light">
             <p>
-              It is a common markup language used to create web pages. Using
-              HTML elements, which are the fundamental components of a
-              webpage, such as tags and attributes, it enables the
-              construction and organization of sections, paragraphs, and
-              connections.
+              {course.course_description}
             </p>
           </div>
         </div>

@@ -120,7 +120,7 @@ const Header = () => {
       <Routes>
         <Route path="/" element={<Index />} />
         <Route path="/courses" element={<CoursesPage />} />
-        <Route path="/Course_detail/" element={<Course_detail />} />
+        <Route path="/Course_detail" element={<Course_detail />} />
         <Route path='/inquiry' element={<Inquiry/>}/>
         <Route path='/free' element={<Free/>}/>
         <Route path='/signin' element={<Signin/>}/> 
