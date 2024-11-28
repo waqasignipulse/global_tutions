@@ -16,14 +16,14 @@ const Banner = () => {
               class="font-bold font-readex 2xl:text-[90px] xl:text-[80px] lg:text-[70px] md:text-[55px] text-[50px]"
             >
               <p
-                class="w-[] md:w-[px] lg:w-[80px] xl:w-[px] 2xl:w-[px] leading-[70px] tracking-tighter"
+                class=" lg:w-[100px]  leading-[70px]  text-[#0d4212]"
               >
                 Empowering IT skills, Transforming Futures.
               </p>
             </div>
             <div>
               <p
-                class="font-poppins text-[12px] md:text-[13px] xl:text-[17px] 2xl:text-[23px] font-bold"
+                class="font-poppins text-[12px] md:text-[13px] xl:text-[17px] 2xl:text-[23px] font-bold text-[#113c15]"
               >
                 Lorem ipsum dolor sit amet consectetur adipisicing
               </p>
@@ -35,7 +35,7 @@ const Banner = () => {
           <img
             src={BannerImages}
             alt="Banner Image"
-            class="w-full max-w-[400px] lg:max-w-none object-cover"
+            class="w-11/12 object-cover"
           />
         </div>
       </div>

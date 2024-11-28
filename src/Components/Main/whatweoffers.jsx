@@ -17,11 +17,11 @@ const whatweoffers = () => {
         </div>
 
         <div
-          class="lg:w-[60%] w-full lg:px-20 md:px-15 px-9 md:py-0 py-10 flex text-justify lg:text-start items-center"
+          class="lg:w-[60%] w-full lg:px-20 md:px-15 px-9 md:py-0 py-10 flex text-justify lg:text-start "
         >
-          <div class="flex flex-col gap-5 justify-center items-center">
+          <div class="flex flex-col gap-">
             <div
-              class="font-bold font-readex 2xl:text-[65px] xl:text-[55px] lg:text-[50px] md:text-[38px] text-[25px]"
+              class="font-bold font-readex 2xl:text-[65px] xl:text-[55px] lg:text-[50px] md:text-[38px] text-[25px] text-start"
             >
               <p>What can we offer?</p>
             </div>

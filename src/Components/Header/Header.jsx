@@ -31,18 +31,18 @@ const Header = () => {
           {/* Logo */}
           <div className="w-1/2 lg:w-[25%]">
             <NavLink to="/">
-              <p className="font-urbanist font-bold text-[20px] md:text-[33px] xl:text-[40px] 2xl:text-[48px]">
+              <p className="font-urbanist font-bold text-xl md:text-2xl xl:text-4xl ">
                 Global Tuitions
               </p>
             </NavLink>
           </div>
 
           {/* Desktop links */}
-          <div className="lg:w-[30%] hidden lg:flex">
-            <div className="flex flex-row gap-5 uppercase font-mono text-[14px] md:text-[15px] lg:text-[17px] xl:text-[22px] 2xl:text-[28px]">
-              <NavLink to="/courses" className="hover:text-white duration-300">Course</NavLink>
-              <NavLink to="/inquiry" className="hover:text-white duration-300">Inquiry</NavLink>
-              <NavLink to="/free" className="hover:text-white duration-300">Free</NavLink>
+          <div className="lg:w-[30%] hidden lg:flex items-center">
+            <div className="flex flex-row gap-3 uppercase font-mono text-[14px] md:text-[12px] lg:text-[15px] xl:text-[24px] ">
+              <NavLink to="/courses" className="hover:text-white duration-300 hover:border-b-2 border-[#77bd7f]">Course</NavLink>
+              <NavLink to="/inquiry" className="hover:text-white duration-300 hover:border-b-2 border-[#68c072]">Inquiry</NavLink>
+              <NavLink to="/free" className="hover:text-white duration-300 hover:border-b-2 border-[#68c072]">Free</NavLink>
             </div>
           </div>
 

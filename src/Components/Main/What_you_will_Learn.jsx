@@ -6,7 +6,7 @@ const What_you_will_Learn = () => {
         {/* <!-- what you will learn section detail  --> */}
   <div class="w-full h-auto">
     <div
-      class="py-[px] md:py-[px] lg:py-[40px] xl:py-[px] 2xl:py-[px] px-[px] md:px-[px] lg:px-[30px] xl:px-[px] 2xl:px-[px]">
+      class="lg:py-[40px] lg:px-[30px] ">
       <div class="flex flex-col gap-10 lg:px-3 px-7">
         <div>
           <p
