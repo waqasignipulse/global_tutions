@@ -9,6 +9,8 @@ import Inquiry from '../Inquiry/Inquiry';
 import Free from '../Free/Free';
 import Course_detail from '../Courses/Course_detail';
 import { useNavigate } from 'react-router-dom';
+import Signin from '../Authentication/Signin';
+import Signup from '../Authentication/Signup';
 
 const Header = () => {
   // State to manage mobile menu visibility
@@ -64,11 +66,11 @@ const Header = () => {
 
           {/* Buttons and bars for large screens */}
           <div className="lg:w-[27%] hidden lg:flex justify-end gap-3 text-[17px] lg:text-[20px] xl:text-[24px]">
-            <NavLink to="signin.html">
+            <NavLink to="/signin">
               <button className="btnbutton">Sign in</button>
             </NavLink>
             <div className="w-1 h-auto border-r-4 border-black"></div>
-            <NavLink to="signup.html">
+            <NavLink to="/signup">
               <button className="btnbutton">Sign up</button>
             </NavLink>
           </div>
@@ -120,6 +122,8 @@ const Header = () => {
         <Route path="/Course_detail" element={<Course_detail />} />
         <Route path='/inquiry' element={<Inquiry/>}/>
         <Route path='/free' element={<Free/>}/>
+        <Route path='/signin' element={<Signin/>}/> 
+        <Route path='/signup' element={<Signup/>}/> 
 
         {/* Add other routes as needed */}
       </Routes>
