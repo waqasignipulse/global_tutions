@@ -7,7 +7,6 @@ import { useLocation } from 'react-router-dom'
 const Course_detail = () => {
   const location = useLocation();
   const course = location.state;
-  
   return (
     <div>
       <Course_detail_banner course={course}/>

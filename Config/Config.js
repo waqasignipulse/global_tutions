@@ -38,13 +38,27 @@ const get_enabled_popular_courses = async ()=>{
     }
 }
 
+const get_enabled_contents = async ()=>{
+
+    try {
+        const response = await axios.get(`${baseUrl}/courses/course/enabled/content`);
+        console.log(response)
+    } catch (error) {
+        console.log(error)
+    }
+
+}
+
 const APIS = {
     // categories
     get_enabled_categories,
 
     // courses
     get_enabled_courses,
-    get_enabled_popular_courses
+    get_enabled_popular_courses,
+
+    // course_contents
+    get_enabled_contents
 
 }
 

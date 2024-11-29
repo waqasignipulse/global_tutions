@@ -1,6 +1,24 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import Config from '../../../Config/Config'
 
 const What_you_will_Learn = () => {
+
+  const [contents, setContents] = useState([]);
+
+  useEffect(()=>{
+
+    Config.get_enabled_contents().then((res)=>{
+      setContents(res)
+    }).catch((err)=>{
+      console.log(err)
+    })
+    
+
+  }, []);
+
+
+
+
   return (
     <div>
         {/* <!-- what you will learn section detail  --> */}
