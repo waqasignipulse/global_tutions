@@ -9,6 +9,7 @@ const What_you_will_Learn = ({id}) => {
 
     Config.get_enabled_contents(id).then((res)=>{
       setContents(res)
+      console.log(res)
     }).catch((err)=>{
       console.log(err)
     })
