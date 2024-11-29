@@ -38,10 +38,10 @@ const get_enabled_popular_courses = async ()=>{
     }
 }
 
-const get_enabled_contents = async ()=>{
+const get_enabled_contents = async (id)=>{
 
     try {
-        const response = await axios.get(`${baseUrl}/courses/course/enabled/content`);
+        const response = await axios.get(`${baseUrl}/courses/course/enabled/content`, {id});
         console.log(response)
     } catch (error) {
         console.log(error)

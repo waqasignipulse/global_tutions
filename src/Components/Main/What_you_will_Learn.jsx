@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import Config from '../../../Config/Config'
 
-const What_you_will_Learn = () => {
+const What_you_will_Learn = ({id}) => {
 
   const [contents, setContents] = useState([]);
 
   useEffect(()=>{
 
-    Config.get_enabled_contents().then((res)=>{
+    Config.get_enabled_contents(id).then((res)=>{
       setContents(res)
     }).catch((err)=>{
       console.log(err)
