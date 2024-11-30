@@ -33,7 +33,7 @@ const PopularCourses = () => {
 
       {/* <!-- popular courses  cards  --> */}
       {/* <!-- cards  --> */}
-       <div class="md:px-14 lg:px- xl:px-24 2xl:px-32 w-full">
+       <div class="card-grid">
           {
             courses.map((course)=> (
               <Cards course={course}/>

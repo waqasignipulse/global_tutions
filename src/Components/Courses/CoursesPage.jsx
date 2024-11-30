@@ -50,7 +50,7 @@ const CoursesPage = () => {
       
       <Sidebar getCategoryId={getCategoryId}/>
       {/* <!-- cards  --> */} 
-      <div class="max-w-[400px] md:max-w-[800px] lg:max-w-[1000px] ">
+      <div class="card-grid">
         {
           filteredCourses?.map((course)=>(
             <Cards course={course}/>

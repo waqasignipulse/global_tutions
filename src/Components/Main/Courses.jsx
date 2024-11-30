@@ -29,15 +29,18 @@ const Courses = () => {
         </div>
         {/* <!-- cards  --> */}
 
-        <div class="md:px-14 lg:px- xl:px-24 2xl:px-32 w-full">
+        <div class="">
+        <div class="card-grid">
           {
             courses.map((course)=> (
               <Cards course={course}/>
             ))
           }
-          {/* <!-- courses more div  --> */}
         </div>
-        <div
+        </div>
+
+          {/* <!-- courses more div  --> */}
+          <div
           class="w-full h-auto flex justify-end items-center md:pt-3 md:pb-8 pt-2 pb-6 px-5"
         >
           <div class="lg:text-[25px] md:text-[25px] text-[20px] font-readex">
@@ -47,6 +50,7 @@ const Courses = () => {
               ></a>
           </div>
         </div>
+    
       </div>
     </div>
   )
