@@ -37,7 +37,7 @@ const Cards = (props) => {
                   <p class="web-development-bold">{props.course?.category_id?.category_name}</p>
                 </div>
                 <div >
-                  <Link to="/Course_detail">
+                  <Link to="/Course_detail" state={props.course}>
                     <button class="btnbutton">View</button>
                   </Link>
                 </div>
