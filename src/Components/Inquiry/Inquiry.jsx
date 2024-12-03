@@ -1,7 +1,28 @@
-import React from 'react'
+import React, { useState } from 'react'
 import FindFreeCoursesandDiscountsoffer from '../Main/FindFreeCoursesandDiscountsoffer'
 import Subscribe from  '../Main/Subscribe'
-const Inquiry = () => {
+const Inquiry = (prop) => {
+
+    const [name, setName] = useState("")
+    const [email, setEmail] = useState("")
+    const [phone, setPhone] = useState("")
+    const [msg, setMsg] = useState("")
+
+    const course_id = prop?.course_id;
+
+    const postInq = ()=>{
+
+        // gather up data
+        const data = {
+            inquiry_by: name,
+            email: email,
+            phone: phone,
+            inquiry: msg,
+            course_id: course_id || null
+        }
+
+    }
+
     return (
         <>
         <div>
@@ -66,7 +87,8 @@ const Inquiry = () => {
                                 <div class="">
                                     <input
                                         type="text"
-                                        name="Name"
+                                        name="name"
+                                        onChange={(value)=> setName(value)}
                                         class="bg-transparent appearance-none w-full py-2 border-white border-[2px] rounded-lg shadow-lg placeholder-white placeholder:px- pl-5 hover:border-green-300 focus:border-green-300 focus:outline-none"
                                         placeholder="Name"
                                         autocomplete="off"
@@ -76,7 +98,8 @@ const Inquiry = () => {
                                 <div class="">
                                     <input
                                         type="email"
-                                        name="Name"
+                                        name="email"
+                                        onChange={(email)=> setEmail(email)}
                                         class="bg-transparent appearance-none w-full py-2 border-white border-[2px] rounded-lg shadow-lg placeholder-white placeholder:px- pl-5 hover:border-green-300 focus:border-green-300 focus:outline-none"
                                         placeholder="Email"
                                         autocomplete="off"
@@ -85,7 +108,8 @@ const Inquiry = () => {
                                 <div class="">
                                     <input
                                         type="number"
-                                        name="Name"
+                                        name="phone"
+                                        onChange={(value)=> setPhone(value)}
                                         class="bg-transparent appearance-none w-full py-2 border-white border-[2px] rounded-lg shadow-lg placeholder-white placeholder:px- pl-5 hover:border-green-300 focus:border-green-300 focus:outline-none"
                                         placeholder="Phone"
                                         autocomplete="off"
@@ -94,7 +118,8 @@ const Inquiry = () => {
                                 <div>
                                     <textarea
                                         type="text"
-                                        name="Name"
+                                        name="msg"
+                                        onChange={(value)=> setMsg(value)}
                                         class="bg-transparent appearance-none w-full py-2 border-white border-[2px] rounded-lg shadow-lg placeholder-white placeholder:px- pl-5 hover:border-green-300 focus:border-green-300 focus:outline-none"
                                         placeholder="Your Message"
                                         autocomplete="off"
