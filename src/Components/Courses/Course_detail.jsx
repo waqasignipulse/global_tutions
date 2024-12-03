@@ -10,7 +10,7 @@ const Course_detail = () => {
   return (
     <div>
       <Course_detail_banner course={course}/>
-      <What_you_will_Learn id={course?._id}/>
+      <What_you_will_Learn id={course?._id} skills={course.skills}/>
       <Subscribe/>
     </div>
   )
