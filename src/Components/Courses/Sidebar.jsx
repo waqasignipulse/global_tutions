@@ -15,8 +15,8 @@ const Sidebar = (props) => {
   },[]);
 
   return (
-    <div className='border-2'>
-       <div class="lg:w-[20%] w-full md:px-0 px-6 bg-[#FFFFFF] p-2 ">
+    <div className='border-2 w-96'>
+       <div class=" w-full md:px-0 px-6 bg-[#FFFFFF] p-2 ">
             <div class="flex flex-col px-4 gap-2 pt-8">
               <p
                 class="font-readex font-semibold lg:text-[38px] md:text-[31px] text-[25px] xl:text-[44px] 2xl:text-[51px]"
@@ -50,7 +50,7 @@ const Sidebar = (props) => {
                 Level
               </p>
               <div
-                class="text-[ 12px] md:text-[14px] lg:text-[16px] xl:text-[18px] 2xl:text-[20px]"
+                class="text-[12px] md:text-[14px] lg:text-[16px] xl:text-[18px] 2xl:text-[20px]"
               >
                 {/* <!-- optoins  --> */}
                 <div class="flex flex-col gap-1">
@@ -67,46 +67,6 @@ const Sidebar = (props) => {
                     <a href="">Advance</a>
                   </label>
                 </div>
-
-                 <details class="flex flex-col gap-2 group">
-                  <summary
-                    class="flex flex-row items-center gap-1 md:text-[18px] text-[14px] font-extralight cursor-pointer"
-                  >
-                    <label
-                      class="font-semibold text-[ 14px] md:text-[16px] lg:text-[18px] xl:text-[20px] 2xl:text-[22px]"
-                      ><input type="checkbox" /> courses</label
-                    >
-                   
-                    <span
-                      class="ml-2 transform transition-transform duration-200 group-open:rotate-180"
-                    >
-                      ⌄
-                    
-                    </span>
-                  </summary>
-                  <ul class="mt-2 ml-4 space-y-2">
-                    <li>
-                      <label><input type="checkbox" /> sql course</label>
-                    </li>
-                    <li>
-                      <label><input type="checkbox" /> pyton course</label>
-                    </li>
-                    <li>
-                      <label><input type="checkbox" /> Chemistry course</label>
-                    </li>
-                    <li>
-                      <label><input type="checkbox" /> cyber course</label>
-                    </li>
-                    <li>
-                      <label
-                        ><input type="checkbox" /> web development course</label
-                      >
-                    </li>
-                    <li>
-                      <label><input type="checkbox" /> gaming course</label>
-                    </li>
-                  </ul>
-                </details>
              
               </div>
             </div>

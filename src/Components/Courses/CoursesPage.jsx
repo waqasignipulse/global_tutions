@@ -44,8 +44,8 @@ const CoursesPage = () => {
     </div>
 
   {/* // <!-- sidebar and cards  --> */}
-    <div class="h-auto max-w-[1350px] mx-auto">
-      <div class="flex lg:flex-row flex-col md:justify-start">
+    <div class="h-auto mx-12">
+      <div class="flex lg:flex-row flex-col md:justify-start ">
         {/* <!-- sidebar   --> */}
       
       <Sidebar getCategoryId={getCategoryId}/>

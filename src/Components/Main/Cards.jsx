@@ -1,55 +1,123 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState, useRef } from "react";
+import { Link } from "react-router-dom";
 import { IoBookmark } from "react-icons/io5";
-import { FaArrowRightToBracket } from "react-icons/fa6";
+import { MdArrowRight } from "react-icons/md";
+import { IoMdArrowDropleft } from "react-icons/io";
+
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const Cards = (props) => {
+  const [showDescription, setShowDescription] = useState(false); // State to manage description visibility
+  const [currentSlide, setCurrentSlide] = useState(0); // Track the current slide index
+  const sliderRef = useRef(null); // Reference to the slider instance
+  const descriptionRef = useRef(null); // Reference to the description section
+
+  // Slider settings
+  const settings = {
+    dots: true,
+    infinite: false,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    afterChange: (index) => {
+      setCurrentSlide(index); // Update the current slide index
+      setShowDescription(index === 1); // Show description only on the second slide
+    },
+  };
+
+  // Handle the arrow click to move to the next or previous slide
+  const handleArrowClick = (direction) => {
+    if (sliderRef.current) {
+      if (direction === "next") {
+        sliderRef.current.slickNext(); // Move to the next slide
+      } else if (direction === "prev") {
+        sliderRef.current.slickPrev(); // Move to the previous slide
+      }
+    }
+  };
+
   return (
-    <div>
-         {/* <div class="md:px-14 lg:px- xl:px-24 2xl:px-32 w-full"> */}
-        {/* <!-- course cards  --> */}
-        {/* <div class="w-full h-auto"> */}
-          {/* <div class="grid md:grid-cols-2 lg:grid-cols-3 grid-cols-1 gap-8 md:gap-12 lg:gap-7 xl:gap-12 2xl:gap-16  px-10"> */}
-            {/* <!-- first --> */}
-            <div class="cards">
-              <div class="cards-color-header">
-                <div class="card-body">
-                  <div class="card-body-text">
-                    <p class="card-p">
-                      <span class="card-span">Duration :</span> 6hr
-                    </p>
-                  </div>
-                  <div>
-                    <IoBookmark
-                      class=" text-2xl align-middle"
-                    ></IoBookmark>
-                  </div>
-                </div>
-                <div class="html-div">
-                  <p class="html-p">{props.course?.course_name} </p>
-                  <p>
-                    <FaArrowRightToBracket class=""></FaArrowRightToBracket>
-                  </p>
-                </div>
-              </div>
-              <div class="footer-div">
-                <div>
-                  <p class="web-development-bold">{props.course?.category_id?.category_name}</p>
-                </div>
-                <div >
-                  <Link to="/Course_detail" state={props.course}>
-                    <button class="btnbutton">View</button>
-                  </Link>
-                </div>
-              </div>
+    <div className="cards relative">
+      <Slider ref={sliderRef} {...settings}>
+        {/* Slide 1: Show Course Name */}
+        <div className="cards-color-header">
+          <div className="card-body">
+            <div className="card-body-text">
+              <p className="card-p">
+                <span className="card-span">Duration:</span> 6hr
+              </p>
             </div>
-            
+            <div>
+              <IoBookmark className="text-2xl align-middle" />
+            </div>
           </div>
-        // </div>
-      // {/* </div> */}
+          <div className="html-div">
+            <p className="html-p">{props.course?.course_name}</p>
+          </div>
+        </div>
 
-    // </div>
-  )
-}
+        {/* Slide 2: Show Course Description */}
+        <div className="cards-color-header-desc">
+          <div className="card-body">
+            <div className="card-body-text">
+              <p className="card-p">
+                <span className="card-span">Charges:</span>
+                <span>{props.course?.price}£/hr</span>
+              </p>
+            </div>
+            <div>
+              <IoBookmark className="text-2xl align-middle" />
+            </div>
+          </div>
+          {showDescription && (
+            <div ref={descriptionRef} className="grid grid-cols-12 items-center">
+              {/* Back Arrow taking 20% of the space */}
+              <p className="col-span-1 text-2xl">←</p>
+              {/* Description taking 80% of the space */}
+              <p className="text-lg col-span-10">{props.course?.course_description}</p>
+            </div>
+          )}
+        </div>
+      </Slider>
 
-export default Cards
+      <div className="footer-div">
+        <div>
+          <p className="web-development-bold">
+            {props.course?.category_id?.category_name}
+          </p>
+        </div>
+        <div>
+          <Link to="/Course_detail" state={props.course}>
+            <button className="btnbutton">View</button>
+          </Link>
+        </div>
+      </div>
+
+      {/* Navigation Arrows */}
+      <div className="absolute flex my-32 justify-center items-center">
+        {currentSlide > 0 && (
+          <p
+            onClick={() => handleArrowClick("prev")}
+            className="cursor-pointer col-span-1 flex justify-center"
+            aria-label="Previous slide"
+          >
+            <IoMdArrowDropleft />
+          </p>
+        )}
+        {currentSlide < props.course?.length - 1 && (
+          <p
+            onClick={() => handleArrowClick("next")}
+            className="cursor-pointer"
+            aria-label="Next slide"
+          >
+            <MdArrowRight />
+          </p>
+        )}
+      </div>
+    </div>
+  );
+};
+
+export default Cards;
