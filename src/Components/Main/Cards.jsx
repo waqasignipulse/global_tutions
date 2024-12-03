@@ -16,7 +16,7 @@ const Cards = (props) => {
 
   // Slider settings
   const settings = {
-    dots: true,
+    dots: false,
     infinite: false,
     speed: 500,
     slidesToShow: 1,
@@ -57,7 +57,7 @@ const Cards = (props) => {
             <p className="html-p">{props.course?.course_name}</p>
             <p
          onClick={() => handleArrowClick("next")}
-         className="cursor-pointer text-2xl text-gray-800"
+         className="cursor-pointer text-4xl text-gray-800"
          aria-label="Next slide"
        >
          <MdArrowRight />
@@ -107,7 +107,7 @@ const Cards = (props) => {
         {currentSlide > 0 && (
           <p
             onClick={() => handleArrowClick("prev")}
-            className="cursor-pointer col-span-1 flex justify-center"
+            className="cursor-pointer col-span-1 flex justify-center text-3xl "
             aria-label="Previous slide"
           >
             <IoMdArrowDropleft />

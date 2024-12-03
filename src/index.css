@@ -76,7 +76,7 @@
 
   /* cards start */
   .cards {
-    @apply flex flex-col bg-white shadow-lg  overflow-hidden rounded-lg p-2 shadow-black w-96 h-auto ;
+    @apply flex flex-col bg-white shadow-lg  overflow-hidden rounded-lg p-2 shadow-black w-96 h-80 ;
   }
   .cards-color-header {
     @apply bg-[#A4DCAA] w-full h-full p-5 lg:p-3 rounded-t-lg;
