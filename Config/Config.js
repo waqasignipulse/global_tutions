@@ -37,7 +37,7 @@ const get_enabled_popular_courses = async ()=>{
         return error
     }
 }
-
+// get enabled course contents
 const get_enabled_contents = async (id)=>{
 
     try {
@@ -49,6 +49,10 @@ const get_enabled_contents = async (id)=>{
         return error
     }
 
+}
+
+const postInq = async (data)=>{
+    
 }
 
 const APIS = {

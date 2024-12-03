@@ -10,8 +10,8 @@ const Inquiry = (prop) => {
 
     const course_id = prop?.course_id;
 
-    const postInq = ()=>{
-
+    const postInq = (e)=>{
+        e.preventDefault();
         // gather up data
         const data = {
             inquiry_by: name,
@@ -21,6 +21,7 @@ const Inquiry = (prop) => {
             course_id: course_id || null
         }
 
+        console.log(data)
     }
 
     return (
@@ -71,7 +72,7 @@ const Inquiry = (prop) => {
                     <div
                         class="bg-[#73a979] xl:px-16 2xl:px-20 md:px-12 lg:px-14 px-10 md:py-8 lg:py-10 py-7 xl:py-12 2xl:py-14 font-readex"
                     >
-                        <div class="flex flex-col gap-5 justify-start">
+                        <form onSubmit={postInq} class="flex flex-col gap-5 justify-start">
                             {/* <!-- inquiry heading  --> */}
                             <div class="  ">
                                 <div
@@ -146,9 +147,9 @@ const Inquiry = (prop) => {
                             </div>
                             {/* <!-- button  --> */}
                             <div>
-                                <button class="btnbutton">Inquire</button>
+                                <button type='submit' class="btnbutton">Inquire</button>
                             </div>
-                        </div>
+                        </form>
                     </div>
                 </div>
             </div>
