@@ -55,6 +55,13 @@ const Cards = (props) => {
           </div>
           <div className="html-div">
             <p className="html-p">{props.course?.course_name}</p>
+            <p
+         onClick={() => handleArrowClick("next")}
+         className="cursor-pointer text-2xl text-gray-800"
+         aria-label="Next slide"
+       >
+         <MdArrowRight />
+       </p>
           </div>
         </div>
 
@@ -106,15 +113,7 @@ const Cards = (props) => {
             <IoMdArrowDropleft />
           </p>
         )}
-        {currentSlide < props.course?.length - 1 && (
-          <p
-            onClick={() => handleArrowClick("next")}
-            className="cursor-pointer"
-            aria-label="Next slide"
-          >
-            <MdArrowRight />
-          </p>
-        )}
+      
       </div>
     </div>
   );
