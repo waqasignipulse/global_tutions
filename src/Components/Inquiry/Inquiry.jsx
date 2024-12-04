@@ -22,7 +22,7 @@ const Inquiry = () => {
             email: email,
             phone: phone,
             inquiry: msg,
-            for_course: course?.course_id || null
+            for_course: course?._id || null
         }
 
         Config.postInq(data).then((res)=>{

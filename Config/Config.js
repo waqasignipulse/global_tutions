@@ -62,6 +62,12 @@ const postInq = async (data)=>{
     }
 }
 
+const postEnrollment = async(data)=>{
+    console.log(data)
+}
+
+
+
 const APIS = {
     // categories
     get_enabled_categories,
@@ -75,6 +81,9 @@ const APIS = {
 
     // inquiries
     postInq,
+
+    // enrollment
+    postEnrollment
 
 }
 
