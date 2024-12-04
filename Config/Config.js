@@ -52,7 +52,14 @@ const get_enabled_contents = async (id)=>{
 }
 
 const postInq = async (data)=>{
-    
+    try {   
+        const response = await axios.post(`${baseUrl}/inquiries/postInquiry`, {data});
+        if(response.statusText === "OK"){
+            return response.data;
+        }
+    } catch (error) {
+        return error
+    }
 }
 
 const APIS = {
@@ -64,7 +71,10 @@ const APIS = {
     get_enabled_popular_courses,
 
     // course_contents
-    get_enabled_contents
+    get_enabled_contents,
+
+    // inquiries
+    postInq,
 
 }
 

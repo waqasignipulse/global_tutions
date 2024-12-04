@@ -1,14 +1,18 @@
 import React, { useState } from 'react'
 import FindFreeCoursesandDiscountsoffer from '../Main/FindFreeCoursesandDiscountsoffer'
 import Subscribe from  '../Main/Subscribe'
-const Inquiry = (prop) => {
+import Config from '../../../Config/Config'
+import { useLocation } from 'react-router-dom'
+
+const Inquiry = () => {
 
     const [name, setName] = useState("")
     const [email, setEmail] = useState("")
     const [phone, setPhone] = useState("")
     const [msg, setMsg] = useState("")
 
-    const course_id = prop?.course_id;
+    const location = useLocation();
+    const course = location.state?.course
 
     const postInq = (e)=>{
         e.preventDefault();
@@ -18,10 +22,16 @@ const Inquiry = (prop) => {
             email: email,
             phone: phone,
             inquiry: msg,
-            course_id: course_id || null
+            for_course: course?.course_id || null
         }
 
-        console.log(data)
+        Config.postInq(data).then((res)=>{
+            // show successfull popup
+            console.log("inq sent")
+        }).catch((err)=>{
+            console.log(err)
+        })
+        
     }
 
     return (
@@ -38,7 +48,7 @@ const Inquiry = (prop) => {
                             <div
                                 class="lg:text-[70px] md:text-[60px] text-[40px] xl:text-[80px] 2xl:text-[90px] font-extrabold font-readex"
                             >
-                                <p>Contact Us</p>
+                                <p>{course?.course_name}</p>
                             </div>
                         </div>
                         {/* <!-- text   --> */}
@@ -47,6 +57,9 @@ const Inquiry = (prop) => {
                         >
                             <p class="text-base leading-loose">
                                 <span class="inline">
+                                    {course?.course_description}
+                                </span>
+                                {/* <span class="inline">
                                     We're here to assist you every step of the way on your learning
                                     expedition. Whether you have questions about our courses , need
                                     guidance on selecting the right program, or simply want to learn
@@ -59,7 +72,7 @@ const Inquiry = (prop) => {
                                 <span class="hidden lg:inline">
                                     Feel free to reach out to us – we‘re committed to helping you
                                     achieve your goals.
-                                </span>
+                                </span> */}
                             </p>
                         </div>
                         {/* <!-- img  --> */}
@@ -89,7 +102,7 @@ const Inquiry = (prop) => {
                                     <input
                                         type="text"
                                         name="name"
-                                        onChange={(value)=> setName(value)}
+                                        onChange={(e)=> setName(e.target.value)}
                                         class="bg-transparent appearance-none w-full py-2 border-white border-[2px] rounded-lg shadow-lg placeholder-white placeholder:px- pl-5 hover:border-green-300 focus:border-green-300 focus:outline-none"
                                         placeholder="Name"
                                         autocomplete="off"
@@ -100,7 +113,7 @@ const Inquiry = (prop) => {
                                     <input
                                         type="email"
                                         name="email"
-                                        onChange={(email)=> setEmail(email)}
+                                        onChange={(e)=> setEmail(e.target.value)}
                                         class="bg-transparent appearance-none w-full py-2 border-white border-[2px] rounded-lg shadow-lg placeholder-white placeholder:px- pl-5 hover:border-green-300 focus:border-green-300 focus:outline-none"
                                         placeholder="Email"
                                         autocomplete="off"
@@ -110,7 +123,7 @@ const Inquiry = (prop) => {
                                     <input
                                         type="number"
                                         name="phone"
-                                        onChange={(value)=> setPhone(value)}
+                                        onChange={(e)=> setPhone(e.target.value)}
                                         class="bg-transparent appearance-none w-full py-2 border-white border-[2px] rounded-lg shadow-lg placeholder-white placeholder:px- pl-5 hover:border-green-300 focus:border-green-300 focus:outline-none"
                                         placeholder="Phone"
                                         autocomplete="off"
@@ -120,7 +133,7 @@ const Inquiry = (prop) => {
                                     <textarea
                                         type="text"
                                         name="msg"
-                                        onChange={(value)=> setMsg(value)}
+                                        onChange={(e)=> setMsg(e.target.value)}
                                         class="bg-transparent appearance-none w-full py-2 border-white border-[2px] rounded-lg shadow-lg placeholder-white placeholder:px- pl-5 hover:border-green-300 focus:border-green-300 focus:outline-none"
                                         placeholder="Your Message"
                                         autocomplete="off"

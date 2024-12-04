@@ -60,9 +60,9 @@ const Course_detail_banner = ({course}) => {
                     Avail
                   </Link>
                 </a>
-                <button class="btnbutton ">
+                <Link to='/inquiry' state={{course}} class="btnbutton ">
                   Inquiry
-                </button>
+                </Link>
                 <button class="btnbutton">
                   PDF
                 </button>
