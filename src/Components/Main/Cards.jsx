@@ -111,7 +111,7 @@ const Cards = (props) => {
       <div className="footer-div">
         <div>
           <p className="web-development-bold">
-            {props.getCategoryNameById(props.course?.category_id)}
+            {props?.getCategoryNameById ? props?.getCategoryNameById(props.course?.category_id) : props?.course?.category_id?.category_name}
           </p>
         </div>
         <div>
