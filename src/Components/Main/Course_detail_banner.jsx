@@ -64,7 +64,7 @@ const Course_detail_banner = ({course}) => {
               {/* <!-- Action Buttons --> */}
               <div class="flex flex-row gap-2 justify-between mt-4">
                 <a href="user-page/avail.html">
-                  <Link to='/avail' class="btnbutton">
+                  <Link to='/avail' state={{course}} class="btnbutton">
                     Avail
                   </Link>
                 </a>

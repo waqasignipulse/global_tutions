@@ -1,8 +1,45 @@
-import React from "react";
+import React, { useState } from "react";
 import FindFreeCoursesandDiscountsoffer from "./FindFreeCoursesandDiscountsoffer";
 import Subscribe from "./Subscribe";
+import { useLocation } from "react-router-dom";
+import Config from '../../../Config/Config'
 
 const Avail = () => {
+
+
+  const location = useLocation();
+  const course = location.state?.course;
+
+  const [name, setName] = useState("")
+  const [email, setEmail] = useState("")
+  const [phone, setPhone] = useState("")
+  const [msg, setMsg] = useState("")
+  const [preferedDate, setPreferedDate] = useState("")
+  const [preferedTime, setPreferedTime] = useState("")
+  const [address, setAddress] = useState("")
+
+
+  const handleSubmit = ()=>{
+    const data = {
+      applier: name,
+      applier_email: email,
+      applier_phone: phone,
+      applier_Address: address,
+      message: msg,
+      preferred_date: preferedDate,
+      preferred_time: preferedTime
+    }
+
+    Config.postEnrollment(data).then((res)=>{
+      console.log(res)
+    }).catch((err)=>{
+      console.log(err)
+    })
+
+
+  }
+
+
   return (
     <div>
       {/* <!-- img and inquiry form both togahter for xl screens  --> */}
@@ -13,24 +50,20 @@ const Avail = () => {
             {/* <!-- contact us heading  --> */}
             <div class="flex justify-start">
               <div class="lg:text-[70px] md:text-[60px] text-[40px] xl:text-[80px] 2xl:text-[90px] font-extrabold font-readex leading-tight lg:leading-[90px] tracking-tighter">
-                <p>HTML For Beginners</p>
+                <p>{course?.course_name}</p>
               </div>
             </div>
             <div class="lg:text-[20px] md:text-[18px] text-[17px] xl:text-[23px] 2xl:text-[25px] font-semibold">
-              <p>30$ / hour</p>
+              <p>{course?.price}$ / hour</p>
             </div>
             <div class="lg:text-[20px] md:text-[18px] text-[17px] xl:text-[23px] 2xl:text-[25px] font-semibold">
-              <p>Duration: 6 hours</p>
+              <p>Duration: {course?.course_duration} hours</p>
             </div>
             {/* <!-- text   --> */}
             <div class="flex justify-start">
               <p class="text-base">
                 <span class="inline leading-loose tracking-widest text-[12px] md:text-[14px] lg:text-[16px] xl:text-[18px] 2xl:text-[20px]">
-                  It is a common markup language used to create web pages. Using
-                  HTML elements, which are the fundamental components of a
-                  webpage, such as tags and attributes, it enables the
-                  construction and organization of sections, paragraphs, and
-                  connections.
+                  {course?.course_description}
                 </span>
               </p>
             </div>
@@ -42,7 +75,7 @@ const Avail = () => {
 
           {/* <!-- inquiry section  --> */}
           <div class="bg-[#73a979] xl:px-16 2xl:px-20 md:px-12 lg:px-14 px-10 md:py-8 lg:py-10 py-7 xl:py-12 2xl:py-14 font-readex">
-            <div class="flex flex-col gap-5 justify-start">
+            <form onSubmit={handleSubmit} class="flex flex-col gap-5 justify-start">
               {/* <!-- inquiry heading  --> */}
               <div class="  ">
                 <div class="2xl:text-[90px] xl:text-[80px] lg:text-[70px] md:text-[60px] text-[50px] font-extrabold text-white">
@@ -54,7 +87,8 @@ const Avail = () => {
                 <div class="">
                   <input
                     type="text"
-                    name="Name"
+                    name="name"
+                    onChange={(e)=> setName(e.target.value)}
                     class="bg-transparent appearance-none w-full py-2 border-white border-[2px] rounded-lg shadow-lg placeholder-white placeholder:px- pl-5 hover:border-green-300 focus:border-green-300 focus:outline-none"
                     placeholder="Name"
                     autocomplete="off"
@@ -64,7 +98,8 @@ const Avail = () => {
                 <div class="">
                   <input
                     type="email"
-                    name="Name"
+                    name="email"
+                    onChange={(e)=> setEmail(e.target.value)}
                     class="bg-transparent appearance-none w-full py-2 border-white border-[2px] rounded-lg shadow-lg placeholder-white placeholder:px- pl-5 hover:border-green-300 focus:border-green-300 focus:outline-none"
                     placeholder="Email"
                     autocomplete="off"
@@ -73,7 +108,8 @@ const Avail = () => {
                 <div class="">
                   <input
                     type="number"
-                    name="Name"
+                    name="phone"
+                    onChange={(e)=> setPhone(e.target.value)}
                     class="bg-transparent appearance-none w-full py-2 border-white border-[2px] rounded-lg shadow-lg placeholder-white placeholder:px- pl-5 hover:border-green-300 focus:border-green-300 focus:outline-none"
                     placeholder="Phone"
                     autocomplete="off"
@@ -82,7 +118,8 @@ const Avail = () => {
                 <div>
                   <textarea
                     type="text"
-                    name="Name"
+                    name="address"
+                    onChange={(e)=> setAddress(e.target.value)}
                     class="bg-transparent appearance-none w-full py-2 border-white border-[2px] rounded-lg shadow-lg placeholder:text-white pl-5 hover:border-green-300 focus:border-green-300 focus:outline-none"
                     placeholder="Your Address"
                     autocomplete="off"
@@ -92,7 +129,8 @@ const Avail = () => {
                 <div class="">
                   <textarea
                     type="text"
-                    name="Name"
+                    name="msg"
+                    onChange={(e)=> setMsg(e.target.value)}
                     class="bg-transparent appearance-none w-full py-2 border-white border-[2px] rounded-lg shadow-lg placeholder:text-white pl-5 hover:border-green-300 focus:border-green-300 focus:outline-none"
                     placeholder="Enter Message"
                     autocomplete="off"
@@ -103,7 +141,8 @@ const Avail = () => {
                   <p>Preferred Date</p>
                   <input
                     type="date"
-                    name="Name"
+                    name="preferedDate"
+                    onChange={(e)=> setPreferedDate(e.target.value)}
                     class="bg-transparent appearance-none w-full py-2 border-white border-[2px] rounded-lg shadow-lg placeholder-white placeholder:px- pl-5 hover:border-green-300 focus:border-green-300 focus:outline-none"
                     placeholder=""
                     autocomplete="off"
@@ -113,7 +152,8 @@ const Avail = () => {
                   <p>Preferred Time</p>
                   <input
                     type="time"
-                    name="Name"
+                    name="preferedTime"
+                    onChange={(e)=> setPreferedTime(e.target.value)}
                     class="bg-transparent appearance-none w-full py-2 border-white border-[2px] rounded-lg shadow-lg placeholder-white placeholder:px- pl-5 hover:border-green-300 focus:border-green-300 focus:outline-none"
                     placeholder=""
                     autocomplete="off"
@@ -138,11 +178,11 @@ const Avail = () => {
               </div>
               {/* <!-- button  --> */}
               <div>
-                <button class="class=inline-block text-center self-start py-2 px-4 xl:px-5 bg-black border-white border-[2px] hover:shadow-black rounded-lg text-slate-50 shadow-md duration-500 text-[12px] md:text-[14px] lg:text-[16px] xl:text-[18px] 2xl:text-[20px]">
+                <button type="submit" class="class=inline-block text-center self-start py-2 px-4 xl:px-5 bg-black border-white border-[2px] hover:shadow-black rounded-lg text-slate-50 shadow-md duration-500 text-[12px] md:text-[14px] lg:text-[16px] xl:text-[18px] 2xl:text-[20px]">
                   Register
                 </button>
               </div>
-            </div>
+            </form>
           </div>
         </div>
       </div>
