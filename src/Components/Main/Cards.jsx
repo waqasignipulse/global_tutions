@@ -37,7 +37,8 @@ const Cards = (props) => {
       }
     }
   };
-  useEffect;
+
+  
   return (
     <div className="cards relative">
       <Slider ref={sliderRef} {...settings}>
@@ -110,7 +111,7 @@ const Cards = (props) => {
       <div className="footer-div">
         <div>
           <p className="web-development-bold">
-            {props.course?.category_id?.category_name}
+            {props.getCategoryNameById(props.course?.category_id)}
           </p>
         </div>
         <div>

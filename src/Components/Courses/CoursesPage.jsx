@@ -20,6 +20,7 @@ const CoursesPage = () => {
   useEffect(() => {
     Config.get_enabled_categories()
       .then((res) => {
+        // console.log(res)
         // If filtering is needed, process the response
         const filteredCategories = res.filter(
           (category) => category.courses && category.courses.length > 0
@@ -147,18 +148,18 @@ const CoursesPage = () => {
                   <div class="flex flex-col gap-1">
                     <ul className="space-y-2">
                       {categories.map((category) => (
-                        <li key={category._id} className="border-b pb-2">
+                        <li key={category?._id} className="border-b pb-2">
                           <div className="flex gap-10 items-center">
                             <label>
                               <input
                                 type="checkbox"
                                 onChange={() =>
-                                  handleCategoryChange(category._id)
+                                  handleCategoryChange(category?._id)
                                 }
-                                checked={selectedCategory === category._id}
+                                checked={selectedCategory === category?._id}
                               />
                               <span className="text-[25px] font-urbanist ml-2 cursor-pointer">
-                                {category.category_name}
+                                {category?.category_name}
                               </span>
                             </label>
                           </div>
