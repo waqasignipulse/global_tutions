@@ -1,7 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import DOMPurify from "dompurify";
-
 const Course_detail_banner = ({course}) => {
   
   return (
@@ -28,14 +26,8 @@ const Course_detail_banner = ({course}) => {
           {/* <!-- Description --> */}
           <div
             class="tracking-tighter leading-tight text-[px] md:text-[px] lg:text-[20px] xl:text-[px] 2xl:text-[px] font-light">
-            <p
-             dangerouslySetInnerHTML={{
-              __html: DOMPurify.sanitize(
-                course?.course_description
-
-              ),
-            }}
-            > 
+            <p>
+              {course?.course_description}
             </p>
           </div>
         </div>
@@ -68,9 +60,9 @@ const Course_detail_banner = ({course}) => {
                     Avail
                   </Link>
                 </a>
-                <button class="btnbutton ">
+                <Link to='/inquiry' state={{course}} class="btnbutton ">
                   Inquiry
-                </button>
+                </Link>
                 <button class="btnbutton">
                   PDF
                 </button>
