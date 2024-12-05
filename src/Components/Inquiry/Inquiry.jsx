@@ -23,8 +23,9 @@ const Inquiry = () => {
             email: email,
             phone: phone,
             inquiry: msg,
-            for_course: course?._id || null
+            for_course: course?._id
         }
+        console.log(data)
 
         Config.postInq(data).then((res)=>{
             // show successfull popup
