@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Config from '../../../Config/Config'
-
+import DOMPurify from "dompurify";
 const What_you_will_Learn = ({id, skills}) => {
 
   const [contents, setContents] = useState([]);
@@ -34,6 +34,7 @@ const What_you_will_Learn = ({id, skills}) => {
         </div>
         {
           contents?.map((content, index)=>(
+            
             <div key={index} class="flex flex-col shadow-lg rounded-md p-5">
               <div
                 class="font-readex text-[30px] md:text-[40px] lg:text-[50px] xl:text-[50px] 2xl:text-[70px] tracking-tighter leading-tight">
@@ -42,8 +43,14 @@ const What_you_will_Learn = ({id, skills}) => {
               <div class="w-full h-auto">
                 <div class="p-3 bg-[#d3d9ef] rounded-2xl">
                   <p
-                    class="text-[14px] md:text-[16px] lg:text-[18px] xl:text-[20px] 2xl:text-[24px] tracking-wide leading-loose">
-                    {content.content_description}
+                    class="text-[14px] md:text-[16px] lg:text-[18px] xl:text-[20px] 2xl:text-[24px] tracking-wide leading-loose"
+                    dangerouslySetInnerHTML={{
+                      __html: DOMPurify.sanitize(
+                        content.content_description
+                      ),
+                    }}
+                    >
+                
                   </p>
                 </div>
               </div>
