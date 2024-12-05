@@ -1,9 +1,9 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { IoBookmark } from "react-icons/io5";
 import { MdArrowRight } from "react-icons/md";
 import { IoMdArrowDropleft } from "react-icons/io";
-
+import DOMPurify from "dompurify";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -37,7 +37,7 @@ const Cards = (props) => {
       }
     }
   };
-
+  useEffect;
   return (
     <div className="cards relative">
       <Slider ref={sliderRef} {...settings}>
@@ -56,12 +56,12 @@ const Cards = (props) => {
           <div className="html-div">
             <p className="html-p">{props.course?.course_name}</p>
             <p
-         onClick={() => handleArrowClick("next")}
-         className="cursor-pointer text-4xl text-gray-800"
-         aria-label="Next slide"
-       >
-         <MdArrowRight />
-       </p>
+              onClick={() => handleArrowClick("next")}
+              className="cursor-pointer text-4xl text-gray-800"
+              aria-label="Next slide"
+            >
+              <MdArrowRight />
+            </p>
           </div>
         </div>
 
@@ -79,11 +79,29 @@ const Cards = (props) => {
             </div>
           </div>
           {showDescription && (
-            <div ref={descriptionRef} className="grid grid-cols-12 items-center">
+            <div
+              ref={descriptionRef}
+              className="grid grid-cols-12 items-center"
+            >
               {/* Back Arrow taking 20% of the space */}
-              <p className="col-span-1 text-2xl">←</p>
+              <p className="col-span-1 text-2xl"></p>
               {/* Description taking 80% of the space */}
-              <p className="text-lg col-span-10">{props.course?.course_description}</p>
+              <p className="text-lg col-span-10 flex-grow text-justify overflow-hidden text-ellipsis break-words">
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html: DOMPurify.sanitize(
+                      // Split the description into words, limit to 15, and add ellipsis if necessary
+                      props.course?.course_description
+                        ?.split(" ")
+                        .slice(0, 15)
+                        .join(" ") +
+                        (props.course?.course_description.split(" ").length > 20
+                          ? "..."
+                          : "")
+                    ),
+                  }}
+                />
+              </p>
             </div>
           )}
         </div>
@@ -113,7 +131,6 @@ const Cards = (props) => {
             <IoMdArrowDropleft />
           </p>
         )}
-      
       </div>
     </div>
   );
