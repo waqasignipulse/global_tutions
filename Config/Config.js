@@ -63,7 +63,14 @@ const postInq = async (data)=>{
 }
 
 const postEnrollment = async(data)=>{
-    console.log(data)
+    try {
+        const response = await axios.post(`${baseUrl}/enrollments/enroll`, {data});
+        if(response.statusText === "OK"){
+            return response.data
+        }
+    } catch (error) {
+        return error
+    }
 }
 
 
