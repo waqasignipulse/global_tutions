@@ -87,7 +87,7 @@ const Cards = (props) => {
               {/* Back Arrow taking 20% of the space */}
               <p className="col-span-1 text-2xl"></p>
               {/* Description taking 80% of the space */}
-              <p className="text-lg col-span-10 flex-grow text-justify overflow-hidden text-ellipsis break-words">
+              <p className="text-lg col-span-10 flex-grow text-justify overflow-hidden text-ellipsis break-words my-2">
                 <div
                   dangerouslySetInnerHTML={{
                     __html: DOMPurify.sanitize(

@@ -229,16 +229,16 @@ const CoursesPage = () => {
           
         </div>
         {filteredCourses.length > 0 && (
-          <div className="flex justify-center items-center py-10 my-20">
+          <div className="flex md:justify-end justify-center items-center py-10 my-20 mx-16">
             <div className="flex items-center space-x-6 text-3xl md:text-4xl lg:text-5xl font-semibold">
               {Array.from({ length: totalPages }, (_, index) => (
                 <button
                   key={index + 1}
                   onClick={() => setCurrentPage(index + 1)}
-                  className={`border-r-2 border-black h-16  px-3 ${
+                  className={`border-r-2 border-black h-12 px-3 ${
                     currentPage === index + 1
-                      ? " text-black text-6xl"
-                      : " text-gray-500 text-6xl"
+                      ? " text-black text-4xl"
+                      : " text-gray-500 text-4xl"
                   }`}
                 >
                   {index + 1}

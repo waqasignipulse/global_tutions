@@ -24,7 +24,7 @@ const What_you_will_Learn = ({id, skills}) => {
         {/* <!-- what you will learn section detail  --> */}
   <div class="w-full h-auto">
     <div
-      class="lg:py-[40px] lg:px-[30px] ">
+      class="max-w-[1700px] mx-auto">
       <div class="flex flex-col gap-10 lg:px-3 px-7">
         <div>
           <p
@@ -63,7 +63,7 @@ const What_you_will_Learn = ({id, skills}) => {
 
   {/* <!-- skill you will learn section short   --> */}
   <div class="w-full h-auto">
-    <div class="lg:py-8 py-5 md:px-8 px-5 flex flex-col gap-3">
+    <div class="max-w-[1700px] mx-auto flex flex-col gap-3">
       <div>
         <p
           class="font-readex text-[34px] md:text-[45px] lg:text-[55px] xl:text-[65px] 2xl:text-[80px] tracking-tighter leading-tight w-full ">

@@ -3,6 +3,8 @@ import FindFreeCoursesandDiscountsoffer from "./FindFreeCoursesandDiscountsoffer
 import Subscribe from "./Subscribe";
 import { useLocation } from "react-router-dom";
 import Config from '../../../Config/Config'
+import DOMPurify from "dompurify";
+import ContactusImg from '../../assets/images/contactus-img.png'
 
 const Avail = () => {
 
@@ -46,7 +48,7 @@ const Avail = () => {
       <div class="w-full h-auto">
         <div class="flex xl:flex-row-reverse flex-col">
           {/* <!-- contact us section  --> */}
-          <div class="flex flex-col gap-2 xl:px-16 2xl:px-20 md:px-12 lg:px-14 px-10 md:py-8 lg:py-10 py-7 xl:py-12 2xl:py-14">
+          <div class="flex flex-col gap-2 xl:px-16 2xl:px-20 md:px-12 lg:px-14 px-10 md:py-8 lg:py-10 py-7 xl:py-12 2xl:py-14 w-1/2">
             {/* <!-- contact us heading  --> */}
             <div class="flex justify-start">
               <div class="lg:text-[70px] md:text-[60px] text-[40px] xl:text-[80px] 2xl:text-[90px] font-extrabold font-readex leading-tight lg:leading-[90px] tracking-tighter">
@@ -62,19 +64,25 @@ const Avail = () => {
             {/* <!-- text   --> */}
             <div class="flex justify-start">
               <p class="text-base">
-                <span class="inline leading-loose tracking-widest text-[12px] md:text-[14px] lg:text-[16px] xl:text-[18px] 2xl:text-[20px]">
-                  {course?.course_description}
+                <span class="inline leading-loose tracking-widest text-[12px] md:text-[14px] lg:text-[16px] xl:text-[18px] 2xl:text-[20px]"
+                 dangerouslySetInnerHTML={{
+                  __html: DOMPurify.sanitize(
+                    course?.course_description
+                  ),
+                }}
+                >
+                  {/* {course?.course_description} */}
                 </span>
               </p>
             </div>
             {/* <!-- img  --> */}
             <div class="flex justify-center items-center">
-              <img src="../images/inquiry page/contactus-img.webp" alt="" />
+              <img src={ContactusImg} alt="" />
             </div>
           </div>
 
           {/* <!-- inquiry section  --> */}
-          <div class="bg-[#73a979] xl:px-16 2xl:px-20 md:px-12 lg:px-14 px-10 md:py-8 lg:py-10 py-7 xl:py-12 2xl:py-14 font-readex">
+          <div class="bg-[#73a979] xl:px-16 2xl:px-20 md:px-12 lg:px-14 px-10 md:py-8 lg:py-10 py-7 xl:py-12 2xl:py-14 font-readex w-1/2"> 
             <form onSubmit={handleSubmit} class="flex flex-col gap-5 justify-start">
               {/* <!-- inquiry heading  --> */}
               <div class="  ">

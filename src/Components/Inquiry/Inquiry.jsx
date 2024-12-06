@@ -4,6 +4,7 @@ import Subscribe from  '../Main/Subscribe'
 import Config from '../../../Config/Config'
 import { useLocation } from 'react-router-dom'
 import ContactusImg from '../../assets/images/contactus-img.png'
+import DOMPurify from "dompurify";
 const Inquiry = () => {
 
     const [name, setName] = useState("")
@@ -61,8 +62,14 @@ const Inquiry = () => {
                             class="flex justify-start text-[12px] md:text-[15px] lg:text-[18px]"
                         >
                             <p class="text-base leading-loose">
-                                <span class="inline">
-                                    {course?.course_description}
+                                <span class="inline"
+                                 dangerouslySetInnerHTML={{
+                                    __html: DOMPurify.sanitize(
+                                      course?.course_description
+                                    ),
+                                  }}
+                                >
+                         
                                 </span>
                                 {/* <span class="inline">
                                     We're here to assist you every step of the way on your learning
